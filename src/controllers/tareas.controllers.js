@@ -46,3 +46,16 @@ export const borrarTarea = async (req,res) => {
     res.status(500).json({ mensaje: "Error al borrar la tarea" });
   }
 }
+
+export const editarTarea = async (req,res) => {
+  try {
+    const tareaEditada = await Tarea.findByIdAndUpdate(req.params.id, req.body);
+    if (!tareaEditada) {
+      return res.status(404).json({ mensaje: "No se encontro la tarea y no pudimos editarla" });
+    }
+    res.status(200).json({mensaje: 'Tarea editada exitosamente'});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: "Error al editar la tarea" });
+  }
+}
