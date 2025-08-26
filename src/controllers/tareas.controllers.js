@@ -33,3 +33,16 @@ export const leerTareaPorId = async (req, res) => {
     res.status(500).json({ mensaje: "Error al obtener la tarea solicitada" });
   }
 };
+
+export const borrarTarea = async (req,res) => {
+  try {
+    const tareaBorrada = await Tarea.findByIdAndDelete(req.params.id);
+    if (!tareaBorrada) {
+      return res.status(404).json({ mensaje: "No se encontro la tarea y no pudimos borrarla" });
+    }
+    res.status(200).json({mensaje: 'Tarea eliminada exitosamente'});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: "Error al borrar la tarea" });
+  }
+}
