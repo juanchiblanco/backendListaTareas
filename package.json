@@ -1,0 +1,14 @@
+{
+  "name": "backendlistatareas",
+  "version": "1.0.0",
+  "description": "Backend de lista de tareas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --env-file .env --watch index.js"
+  },
+  "keywords": ["react","tareas","lista","crud","backend","nodejs","mongodb","postman","modules","practico"],
+  "author": "Blanco Juan Manuel",
+  "license": "MIT",
+  "type": "module"
+}
